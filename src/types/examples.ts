@@ -556,9 +556,11 @@ export function checkAgeEligibility(
       return userAge >= schemeAgeRange.minAge;
     case 'SPECIFIC_AGE':
       return userAge >= schemeAgeRange.minAge && userAge <= schemeAgeRange.maxAge;
-    default:
+    default: {
       // TypeScript ensures exhaustive checking
       const _exhaustive: never = schemeAgeRange;
-      return false;
+      // This line should never be reached due to exhaustive checking
+      return _exhaustive;
+    }
   }
 }
